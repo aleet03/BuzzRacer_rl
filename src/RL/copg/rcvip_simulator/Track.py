@@ -46,7 +46,8 @@ class Track:
         config = minidom.parse(config_xml_path)
 
         config_track= config.getElementsByTagName('track')[0]
-        self.track = TrackFactory(None,config_track,'full')
+        self.track = TrackFactory.prepareRcpTrack(None,config_track)
+        self.track.reconstructRaceline()
         N,X,Y,s,phi,kappa,diff_s,d_upper,d_lower,border_angle_upper,border_angle_lower = self.track.getOrcaStyleTrack()
 
         self.N = N

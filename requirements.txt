@@ -1,0 +1,12 @@
+scipy
+numpy
+opencv-python
+xml-python
+cvxopt
+Pillow
+matplotlib
+torch
+pyserial
+gymnasium
+pygame
+gym

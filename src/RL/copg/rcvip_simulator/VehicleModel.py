@@ -3,22 +3,25 @@ import torch
 try:
     from Track import Track
 except ModuleNotFoundError:
-    from RL.copg.rcvip_simulator.Track import Track
+    from copg.rcvip_simulator.Track import Track
+# from Track import TrackFactory
 import numpy as np
 import copy
 from math import radians,degrees
 import matplotlib.pyplot as plt
 
 class VehicleModel():
-    def __init__(self,n_batch,device,track='orca',dt=0.03):
+    def __init__(self,n_batch,device,track='rcp',dt=0.03):
         print('rcvip version of VehicleModel')
 
         self.device = device
         self.track = Track()
+        # self.trackfactory = TrackFactory()
         if (track == 'orca'):
             self.track.loadOrcaTrack()
         elif (track == 'rcp'):
             self.track.loadRcpTrack()
+            # self.trackfactory.loadRcpTrack()
 
         self.track_n = self.track.s.shape[0]
         self.track_s = torch.from_numpy(self.track.s).type(torch.FloatTensor).to(self.device)
