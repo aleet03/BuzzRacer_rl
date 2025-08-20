@@ -5,8 +5,12 @@ from numpy import linalg as LA
 import math
 import torch
 import sys
-sys.path.insert(0,'../..') # inorder to run within the folder
-sys.path.insert(0,'..') # inorder to run within the folder
+# sys.path.insert(0,'../..') # inorder to run within the folder
+# sys.path.insert(0,'..') # inorder to run within the folder
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+print(sys.path)
 from track.TrackFactory import TrackFactory
 from math import radians
 import matplotlib.pyplot as plt
